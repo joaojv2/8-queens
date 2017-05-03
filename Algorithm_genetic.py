@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue May  2 23:24:12 2017
+Created on Tue May  2 13:24:12 2017
 
 @author: João Victor
 """
@@ -117,7 +117,7 @@ while maxi != 8:
             if fitness[i] > maxi:
                 maxi = fitness[i]
                 if maxi == 8:
-                    print (population[i])
+                    print ("best solution :" , population[i])
                     best_result = True
                     break
         if best_result == True:
