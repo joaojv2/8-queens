@@ -97,7 +97,7 @@ while maxi != 8:
                     fitness.pop(i)
                     killed += 1
 
-                if killed==kill_limit:
+                if killed == kill_limit:
                     break
             except:
                 break
