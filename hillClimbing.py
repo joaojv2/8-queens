@@ -30,8 +30,8 @@ class HillClimbing(object):
 
             count += 1
 
-        print "Quantidade de iteracoes: " + str(count)
-        print "Quantidade de ataques entre pares de rainhas:" + str(totalAtackAtual)
+        print ("Quantidade de iteracoes: " + str(count))
+        print ("Quantidade de ataques entre pares de rainhas:" + str(totalAtackAtual))
         return self.matriz
 
 
@@ -210,4 +210,4 @@ def getAtackRainha(tabuleiro, posicaoI, posicaoJ):
 def imprimeMatriz(matriz):
     for i in range(len(matriz)):
         linha = matriz[i]
-        print linha
+        print (linha)
