@@ -5,10 +5,13 @@
 from AlgoritmoGenetico import AlgoritmoGenetico
 from SimulatedAnnealing import SimulatedAnnealing
 import hillClimbing as climb
-def main():
-	tipo = "algoritmo genetico"
 
-	if tipo == "hill climb":
+def main():
+	print("Digite o tipo de resolução desejada:")
+	print("1-Simulated Annealing 2-Algoritmo Genetico 3-Hill Climbing")
+	tipo = input()
+	
+	if tipo == '3':
 		#Pega a matriz do arquivo
 	    matriz = climb.getMatrizArquivo('matriz.txt')
 	    #Cria o objeto
@@ -23,9 +26,10 @@ def main():
 	    #imprime a matriz com o resultado
 	    climb.imprimeMatriz(hc.hill(20))
 
-	elif tipo == "simulated annealing":
-		simulatedannealing = SimulatedAnnealing()
+	elif tipo == '1':
+		simulatedannealing = SimulatedAnnealing('matriz.txt')
 
-	elif tipo == "algoritmo genetico":
-		algoritmogenetico = AlgoritmoGenetico()
+	elif tipo == '2':
+		algoritmogenetico = AlgoritmoGenetico('matriz.txt')
+		
 main()

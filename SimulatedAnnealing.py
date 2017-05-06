@@ -7,12 +7,15 @@ Created on Thu May  4 09:28:13 2017
 """
 from Tabuleiro import Tabuleiro
 from Fitness import Fitness
+from Arquivo import Arquivo
 import math
 import random
 
 class SimulatedAnnealing(object):
 
-    def __init__ (self):
+    def __init__ (self , path):
+        self.path = path
+        self.arquivo = Arquivo()
         self.main()
 
     def aceitacaoNovaSolucao(self ,temperatura , delta):
@@ -27,8 +30,17 @@ class SimulatedAnnealing(object):
     def temperaturaInicial (self):
         return 1000
 
+    def imprimirMatrizInicial(self , S0):
+        print("------Matriz inicial-------")
+        for i in range(len(S0)):
+            linha = S0[i]
+            print(linha)
+
+
     def main(self):
         alpha = 0.2
+        S0 = self.arquivo.getMatrizArquivo(self.path)
+        self.imprimirMatrizInicial(S0)
         S = 0
         T0 = self.temperaturaInicial()
         T = T0
@@ -50,5 +62,6 @@ class SimulatedAnnealing(object):
             j += 1
             if T <= 0:
                 break
-            
+        
+        print("Simulated Annealing Resultado:")
         S.imprimirTabuleiro()

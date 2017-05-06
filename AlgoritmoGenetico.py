@@ -7,17 +7,20 @@ Created on Thu May  4 09:28:13 2017
 """
 from Reproducao import Reproducao
 from Check import Check
+from Arquivo import Arquivo
 from Mutacao import Mutacao
 from random import randint
 
 class AlgoritmoGenetico(object):
 
-	def __init__(self):
+	def __init__(self , path):
 		self.estadoInicial = [1,2,3,4,5,6,7,8]
 		self.tamanhoPopulacao = 40
 		self.variacao = [4,14]  
 		self.morte = 0.40 
 		self.morteLimite = self.morte * self.tamanhoPopulacao
+		self.path = path
+		self.arquivo = Arquivo()
 
 		self.populacao=[]
 		self.fitness=[]
@@ -26,7 +29,15 @@ class AlgoritmoGenetico(object):
 
 		self.executavel()
 
+	def imprimeMatriz(self , matriz):
+		print("------Matriz inicial-------")
+		for i in range(len(matriz)):
+			linha = matriz[i]
+			print(linha)
+
 	def executavel(self):
+		S0 = self.arquivo.getMatrizArquivo(self.path)
+		self.imprimeMatriz(S0)
 		for i in range(0 , self.tamanhoPopulacao):
 			self.populacao.append([1,2,3,4,5,6,7,8])
 			a = 0
@@ -73,8 +84,9 @@ class AlgoritmoGenetico(object):
 		            if self.fitness[i] > maxi:
 		                maxi = self.fitness[i]
 		                if maxi == 8:
-		                    print (self.populacao[i])
-		                    self.melhorResultado = True
-		                    break
+		                	print("Algoritmo Genetico")
+		                	print(self.populacao[i])
+		                	self.melhorResultado = True
+		                	break
 		        if self.melhorResultado == True:
 		            break
