@@ -21,6 +21,8 @@ class AlgoritmoGenetico(object):
 		self.morteLimite = self.morte * self.tamanhoPopulacao
 		self.path = path
 		self.arquivo = Arquivo()
+		self.linha = []
+		self.coluna = []
 
 		self.populacao=[]
 		self.fitness=[]
@@ -85,8 +87,21 @@ class AlgoritmoGenetico(object):
 		                maxi = self.fitness[i]
 		                if maxi == 8:
 		                	print("Algoritmo Genetico")
-		                	print(self.populacao[i])
+		                	self.printarMatricial(self.populacao[i])
 		                	self.melhorResultado = True
 		                	break
 		        if self.melhorResultado == True:
 		            break
+
+	def printarMatricial(self , vetor):
+		for i in range(8):
+			valor = vetor[i]
+			for j in range(8):
+				if j == valor:
+					self.coluna.append(1)
+				else:           
+					self.coluna.append(0)
+			self.linha.append(self.coluna)
+			self.coluna = []
+		for i in range(8):
+			print(self.linha[i])
